@@ -1,0 +1,37 @@
+
+# Read from /mnt/d/PhD/THOP-TTP/test-process/experiment/solutions/saashc/d2103-thop/d2103_01_bsc_01_01_01.thop.sol.42.cmaes_initials.par at Thu Jun  4 15:58:21 2026
+
+ N 10
+ typicalX 10
+  0.807    2.63   0.344   0.233   0.426
+  0.938    0.35   0.115   0.755   0.529
+
+ initialX 10
+  0.807    2.63   0.344   0.233   0.426
+  0.938    0.35   0.115   0.755   0.529
+
+ initialStandardDeviations 10
+ 0.0001    3.09   0.269 0.00868   0.321
+  0.105   0.711    0.19   0.213   0.286
+
+ seed 42
+ stopMaxFunEvals 152100
+ stopMaxIter 8450
+ stopFitness
+ stopTolFun 0
+ stopTolFunHist 0
+ stopTolX 0
+ stopTolUpXFactor 1000
+ lambda 18
+ mu 9
+ weights   log
+ cs 0.410111
+ damps 1.40893
+ ccumcov 0.285714
+ mucov 5.64757
+ ccov 0.0593325
+ diagonalCovarianceMatrix 0
+ updatecov 0.168542
+ maxTimeFractionForEigendecompostion 0.2
+ resume                                                        _no_
+

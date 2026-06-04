@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/mnt/d/PhD/THOP-TTP/test-process/experiment/src/saashc/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
