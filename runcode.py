@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # os.system("make aco++")
     # os.system("make saashc")
 
-    pool = multiprocessing.Pool(processes=max(1, multiprocessing.cpu_count() - 2))
+    pool = multiprocessing.Pool(multiprocessing.cpu_count())
     for _product in itertools.product(tsp_base, number_of_items_per_city, knapsack_type, knapsack_size, maximum_travel_time):
         _tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time = _product
         for repetition in range(number_of_runs):
