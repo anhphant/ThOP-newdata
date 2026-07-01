@@ -11,11 +11,18 @@ from launcherfunc import aco_launcher, brkga_launcher, ils_launcher, acopp_launc
 
 if __name__ == "__main__":
 
-    tsp_base = ["d2103", "d15112", "pla7397"] # gg pla33810
-    number_of_items_per_city = [1, 3, 5, 10, ]
-    knapsack_type = ["bsc", "unc", "usw", ]
-    knapsack_size = [1, 5, 10, ]
-    maximum_travel_time = [1, 2, 3, ]
+    # tsp_base = ["d2103", "d15112", "pla7397"] # gg pla33810
+    # number_of_items_per_city = [1, 3, 5, 10, ]
+    # knapsack_type = ["bsc", "unc", "usw", ]
+    # knapsack_size = [1, 5, 10, ]
+    # maximum_travel_time = [1, 2, 3, ]
+    # number_of_runs = 1
+
+    tsp_base = ["pla33810"] # gg pla33810
+    number_of_items_per_city = [10]
+    knapsack_type = ["bsc" ]
+    knapsack_size = [10]
+    maximum_travel_time = [3]
     number_of_runs = 1
 
     os.system("make clean")
@@ -31,7 +38,7 @@ if __name__ == "__main__":
         _tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time = _product
         for repetition in range(number_of_runs):
             cnt += 1
-            if cnt <= 135:
+            if (cnt <= 167):
                 continue
             pool.apply_async(ils_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
             # pool.apply_async(brkga_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
