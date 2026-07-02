@@ -19,8 +19,8 @@ if __name__ == "__main__":
     number_of_runs = 1
 
     os.system("make clean")
-    os.system("make ils")
-    # os.system("make brkga")
+    # os.system("make ils")
+    os.system("make brkga")
     # os.system("make aco")
     # os.system("make aco++")
     # os.system("make saashc")
@@ -31,10 +31,10 @@ if __name__ == "__main__":
         _tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time = _product
         for repetition in range(number_of_runs):
             cnt += 1
-            if (cnt <= 187):
-                continue
-            pool.apply_async(ils_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
-            # pool.apply_async(brkga_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
+            # if (cnt <= 187):
+            #     continue
+            # pool.apply_async(ils_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
+            pool.apply_async(brkga_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
             # pool.apply_async(aco_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
             # pool.apply_async(acopp_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
             # pool.apply_async(saashc_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
