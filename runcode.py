@@ -31,7 +31,7 @@ if __name__ == "__main__":
         _tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time = _product
         for repetition in range(number_of_runs):
             cnt += 1
-            if (cnt <= 199):
+            if (cnt <= 206):
                 continue
             pool.apply_async(ils_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
             # pool.apply_async(brkga_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
