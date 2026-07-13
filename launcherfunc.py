@@ -5,6 +5,20 @@ import subprocess
 random_seeds = [42]
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 
+MAX_RUNTIME = 15 * 60  # 15 minutes
+
+
+def compute_runtime(tsp_base, number_of_items_per_city, runtime_factor="1x"):
+    base = math.ceil(
+        (int("".join(filter(str.isdigit, tsp_base))) - 2)
+        * number_of_items_per_city
+        / 10.0
+    )
+
+    factor = float(runtime_factor.replace("x", "").replace("t", ""))
+
+    return min(base * factor, MAX_RUNTIME)
+
 def ils_launcher(
     tsp_base,
     number_of_items_per_city,
@@ -42,16 +56,9 @@ def ils_launcher(
         )
     )
 
-    timelimit = math.ceil(
-        (
-            int(
-                ''.join(
-                    filter(lambda x: x.isdigit(), tsp_base)
-                )
-            ) - 2
-        )
-        * number_of_items_per_city
-        / 10.0
+    timelimit = compute_runtime(
+        tsp_base,
+        number_of_items_per_city
     )
 
     cmd = [
@@ -120,9 +127,9 @@ def brkga_launcher(tsp_base, number_of_items_per_city,
         )
 
         # ===== RUNTIME =====
-        runtime = math.ceil(
-            (int(''.join(filter(str.isdigit, tsp_base))) - 2)
-            * number_of_items_per_city / 10.0
+        runtime = compute_runtime(
+            tsp_base,
+            number_of_items_per_city
         )
 
         # ===== CREATE OUTPUT DIR =====
@@ -202,7 +209,11 @@ def aco_launcher(tsp_base, number_of_items_per_city, knapsack_type, knapsack_siz
 
     fixed_parameters = "--ants 196 --alpha 1.24 --beta 5.46 --rho 0.51 --ptries 1"
     current_seed = random_seeds[repetition]
-    calculated_time = float(runtime_factor.replace('x','')) * math.ceil((int(''.join(filter(lambda x: x.isdigit(), tsp_base))) - 2) * number_of_items_per_city / 10.0)
+    calculated_time = compute_runtime(
+        tsp_base,
+        number_of_items_per_city,
+        runtime_factor
+    )
 
     executable = os.path.join(ROOT_DIR, "src", "aco", "acothop")
     cmd = [
@@ -244,8 +255,12 @@ def acopp_launcher(tsp_base, number_of_items_per_city, knapsack_type, knapsack_s
 
     fixed_parameters = "--ants 196 --alpha 1.24 --beta 5.46 --rho 0.51 --ptries 1"
     current_seed = random_seeds[repetition]
-    calculated_time = float(runtime_factor.replace('x','').replace('t','')) * math.ceil((int(''.join(filter(lambda x: x.isdigit(), tsp_base))) - 2) * number_of_items_per_city / 10.0)
-
+    calculated_time = compute_runtime(
+        tsp_base,
+        number_of_items_per_city,
+        runtime_factor
+    )
+    
     executable = os.path.join(ROOT_DIR, "src", "aco++", "acothop")
     cmd = [
         executable,
@@ -287,7 +302,11 @@ def saashc_launcher(tsp_base, number_of_items_per_city, knapsack_type, knapsack_
 
     fixed_parameters = "--ants 196 --alpha 1.24 --beta 5.46 --rho 0.51 --ptries 1"
     current_seed = random_seeds[repetition]
-    calculated_time = float(runtime_factor.replace('x','')) * math.ceil((int(''.join(filter(lambda x: x.isdigit(), tsp_base))) - 2) * number_of_items_per_city / 10.0)
+    calculated_time = compute_runtime(
+        tsp_base,
+        number_of_items_per_city,
+        runtime_factor
+    )
 
     executable = os.path.join(ROOT_DIR, "src", "saashc", "build", "acothop")
     cmd = [
