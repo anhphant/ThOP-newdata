@@ -292,7 +292,6 @@ void read_thop_instance(const char *input_file_name, struct point **nodeptr, str
     fscanf(input_file, "PROBLEM NAME: %s\n", buf);
     fscanf(input_file, "KNAPSACK DATA TYPE: %[^\n]\n", instance.knapsack_data_type);
     fscanf(input_file, "DIMENSION: %ld\n", &instance.n); ++instance.n;
-    assert(instance.n > 3 && instance.n < 6000);
     fscanf(input_file, "NUMBER OF ITEMS: %ld\n", &instance.m);
     fscanf(input_file, "CAPACITY OF KNAPSACK: %ld\n", &instance.capacity_of_knapsack);
     fscanf(input_file, "MAX TIME: %lf\n", &instance.max_time);
