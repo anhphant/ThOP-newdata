@@ -474,6 +474,43 @@ int main(int argc, char *argv[]) {
       COMMENTS:       this function controls the run of "max_tries" independent trials
      */
 
+    free( instance.distance );
+    free( instance.nn_list );
+    free( pheromone );
+    free( total );
+    free( best_in_try );
+    free( best_found_at );
+    free( time_best_found );
+    free( time_total_run );
+    
+    for ( i = 0 ; i < n_ants ; i++ ) {
+        free( ant[i].tour );
+        free( ant[i].visited );
+        free( ant[i].packing_plan );
+    }
+    free( ant );
+    
+    for ( i = 0 ; i < n_ants ; i++ ) {
+        free( prev_ls_ant[i].tour );
+        free( prev_ls_ant[i].visited );
+        free( prev_ls_ant[i].packing_plan );
+    }
+    free( prev_ls_ant );
+    
+    free( best_so_far_ant->tour );
+    free( best_so_far_ant->visited );
+    free( best_so_far_ant->packing_plan ); 
+    
+    free( restart_best_ant->tour );
+    free( restart_best_ant->visited );
+    free( restart_best_ant->packing_plan ); 
+    
+    free( global_best_ant->tour );
+    free( global_best_ant->visited );
+    free( global_best_ant->packing_plan ); 
+    
+    free( prob_of_selection );
+
     long int i, k;
 
     start_timers();
