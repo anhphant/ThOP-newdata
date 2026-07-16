@@ -36,8 +36,8 @@ if __name__ == "__main__":
     # os.system("make ils")
     # os.system("make brkga")
     # os.system("make aco")
-    os.system("make aco++")
-    # os.system("make saashc")
+    # os.system("make aco++")
+    os.system("make saashc")
 
     cnt = 0
     pool = multiprocessing.Pool(multiprocessing.cpu_count())
@@ -48,8 +48,8 @@ if __name__ == "__main__":
             # pool.apply_async(ils_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
             # pool.apply_async(brkga_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
             # pool.apply_async(aco_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
-            pool.apply_async(acopp_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
-            # pool.apply_async(saashc_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
+            # pool.apply_async(acopp_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
+            pool.apply_async(saashc_launcher, args=(_tsp_base, _number_of_items_per_city, _knapsack_type, _knapsack_size, _maximum_travel_time, repetition))
 
     pool.close()
     pool.join()
