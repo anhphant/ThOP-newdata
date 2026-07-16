@@ -474,6 +474,8 @@ int main(int argc, char *argv[]) {
       COMMENTS:       this function controls the run of "max_tries" independent trials
      */
 
+    long int i, k;
+
     free( instance.distance );
     free( instance.nn_list );
     free( pheromone );
@@ -510,8 +512,6 @@ int main(int argc, char *argv[]) {
     free( global_best_ant->packing_plan ); 
     
     free( prob_of_selection );
-
-    long int i, k;
 
     start_timers();
 
